@@ -1,0 +1,12 @@
+extends index.pug
+block content
+  .center-container
+    .form-box
+      h1 Login
+      p.error-message=error
+      form.login-form(action="/login",method="post")
+        label username
+          input(type="text",name="user")
+        label password
+          input(type="password",name="pass")
+        button(type="submit") Login

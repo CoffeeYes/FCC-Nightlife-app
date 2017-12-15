@@ -1,0 +1,17 @@
+extends index.pug
+
+block content
+  .center-container
+    .form-box
+      h1 Signup
+      p.error-message=error
+      form.signup-form(action="/signup",method="post")
+        label Username
+          input(type="text",name="user")
+        label email
+          input(type="text",name="email")
+        label password
+          input(type="password",name="pass1")
+        label repeat password
+          input(type="password",name="pass2")
+        button Submit
