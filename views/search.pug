@@ -1,0 +1,27 @@
+extends index.pug
+
+block content
+  .content-container
+    .search-form-box
+      p.error-message=error
+      form.search-form(action="/search",method="post")
+        label where are you 
+          input.searchbar(name="location")
+        button Search
+    if(bar_arr)
+      .results-container
+        each item in bar_arr
+          .bar-item
+            a(href=item.url)
+              h2(class="bar_name")=item.name
+            if(currentUser)
+              a.click-going(href="#")
+                if(going_arr[item.name] != undefined)
+                  p.going-text= going_arr[item.name] + " going"
+                else
+                  p.going-text 0 going
+            if !(currentUser)
+              if(going_arr[item.name] != undefined)
+                p.going-text=going_arr[item.name] + " going"
+              else
+                p.going-text 0 going
